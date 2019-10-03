@@ -1,0 +1,65 @@
+顺丰退货下订单：
+您的应用 顾客编码(clientCode)： XXYPWLKJ
+您的应用 校验码 (checkWord) ： ePcXxeXmsewGpqQiqLq1wuBrLYtxhJd6
+顺丰不知道是啥编码：
+一、测试环境web公网地址及主要校验字段：
+测试环境服务地址：
+http://218.17.248.244:11080/bsp-oisp/ws/sfexpressService?wsdl
+?
+接入编码：SDZHGY
+Checkword：o4CHu8NyWNuW
+
+顺丰丰桥测试环境账号：15967097105
+密码：Xingx123
+
+插入售后工单接口表的条件： AfterSalesOrderServiceImpl.getSystemParameter
+
+速必达测试仓库：xx_warehouse sn='W201804143535'
+
+控制层的路径以"/"开始
+
+订单全链路：
+@Resource(name = "orderFullLinkServiceImpl")
+	private OrderFullLinkService orderFullLinkService;
+orderFullLinkService.addFullLink(CompanyInfoId(), OrderId(),null, 99, "说明");
+
+序列号：生成类
+SnService
+
+没有引用也不会报
+@SuppressWarnings("unchecked")
+@SuppressWarnings({ "unchecked", "rawtypes" })
+
+查询路由信息
+xx_delivery_corp 表的waybill_sn，url（没试过，应该也是的） 不能为空
+
+售后工单的AfterSalesOrderNewController
+
+苏宁运单号回传接口 SNNumberBackTask
+
+默认情况下，两个类之间切换。CTRL+F6
+
+日志记录表：intf_send_log
+
+天猫接口表： intf_tb_order  tid字段是来源单号
+
+
+业务表转订单表时设置省市区 ：IntfCommonMatchAreaServiceImpl  matchArea()
+
+仓库分配：OrderMatchWsServiceImpl   matchingwarehouse(Order order)   --分配成功之后会分配物流setStoreDelivery(order);
+
+路由查询：/ec/member/shipping/checkWsn.jhtml",
+
+获取天猫订单的两个类:TbRdsOrderDownTask,TbXXRdsOrderDownTask
+天猫订单下载的类
+
+在线维护物流和店铺的关系下载的类: allLogisticController
+在线维护物流系统:第三方平台配置物流-表:intf_all_logistic ,erp物流快递-表:xx_delivery_corp
+
+JdSearchAllOrdersDownTask 京东自营订单下载,测试类: net.shopxx.intf.jdRouterjson.task.test2
+JdOrderDownTask 京东pop店 测试类:net.shopxx.intf.task.order.down.Test111
+
+IntfShippingUploadServiceImpl CCS请求我们销售订单的类 --IntfShippingUploadController
+
+
+
